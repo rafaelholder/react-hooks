@@ -9,6 +9,8 @@ import React, {
   useState,
   useRef,
 } from 'react';
+import ContextHook from './Hooks/UseContext';
+import ReducerHook from './Hooks/UseReducer';
 
 // // React.memo has the same propose of useCallback
 // const Button = ({ handleIncrementCounter }) => {
@@ -134,7 +136,7 @@ function App() {
   const [posts, setPosts] = useState([]);
   const [value, setValue] = useState('');
 
-  const inputRef = useRef(null); //UseRef dont re-render the page/component
+  const inputRef = useRef(null); //UseRef don't re-render the page/component
 
   const counter = useRef(0); //Count the many times the page render
 
@@ -162,26 +164,37 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <h6>Render: {counter.current}x</h6>
-      <p>
-        <input
-          ref={inputRef}
-          type="search"
-          value={value}
-          onChange={(e) => setValue(e.target.value)}
-        />
-      </p>
-      {useMemo(() => {
-        return (
-          posts.length > 0 &&
-          posts.map((post) => {
-            return <Post key={post.id} post={post} handleClick={handleClick} />;
-          })
-        );
-      }, [posts])}
-      {posts.length <= 0 && <p>There are no posts.</p>}
-    </div>
+    <section>
+      <div className="App">
+        <h6>Render: {counter.current}x</h6>
+        <p>
+          <input
+            ref={inputRef}
+            type="search"
+            value={value}
+            onChange={(e) => setValue(e.target.value)}
+          />
+        </p>
+        {/* {useMemo(() => {
+          return (
+            posts.length > 0 &&
+            posts.map((post) => {
+              return (
+                <Post key={post.id} post={post} handleClick={handleClick} />
+              );
+            })
+          );
+        }, [posts])} */}
+        {posts.length <= 0 && <p>There are no posts.</p>}
+      </div>
+
+      <div>
+        <ContextHook />
+      </div>
+      <div>
+        <ReducerHook />
+      </div>
+    </section>
   );
 }
 
