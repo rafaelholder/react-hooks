@@ -10,18 +10,20 @@ const globalState = {
 
 const reducer = (state, action) => {
   switch (action.type) {
-    case 'muda': {
-      console.log('Chamou muda com', action.payload);
+    case 'change': {
+      console.log('Called change with', action.payload);
+      alert('Called change with', action.payload);
       return { ...state, title: action.payload };
     }
     case 'inverter': {
       console.log('call inverter');
+      alert('call inverter');
       const { title } = state;
       return { ...state, title: title.split('').reverse().join('') };
     }
   }
 
-  console.log('None action found...');
+  alert('None action found...');
   return { ...state };
 };
 
@@ -37,7 +39,7 @@ function ReducerHook() {
       <button
         onClick={() =>
           dispatch({
-            type: 'muda',
+            type: 'change',
             payload: new Date().toLocaleString('pt-BR'),
           })
         }

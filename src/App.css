@@ -1,5 +1,19 @@
+.container {
+  background-color: wheat;
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  padding: 16px;
+
+}
 .App {
-  text-align: center;
+
+  margin: 1px;
+  padding: 1ch;
+  align-items: center;
+
 }
 
 .App-logo {

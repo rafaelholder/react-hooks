@@ -2,8 +2,8 @@ import { createContext, useContext, useState } from 'react';
 import '../../App.css';
 
 const globalState = {
-  title: 'O título que contexto',
-  body: 'O body do contexto',
+  title: 'title context',
+  body: 'Click here in the body of context state',
   counter: 0,
 };
 const GlobalContext = createContext();
