@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import './App.css';
 import React from 'react';
 import ContextHook from './Hooks/UseContext';
@@ -7,13 +8,26 @@ import MyHook from './Hooks/CreateMyHook';
 import UseMemoPosts from './Hooks/UseRef';
 import UseState from './Hooks/UseState';
 import UseCallback_ReactMemo from './Hooks/UseCallback_ReactMemo';
+import Http_example from './Http_examples';
+import RoutesApp from './Routes/routes';
+import Header from './Routes/Header';
 
 function App() {
   console.log(' render!');
 
+  // CTRL + : = comenta um bloco marcado
   return (
     <section className="container">
-      <div className="App">
+      {/* <div className="App">
+        <Http_example />
+      </div> */}
+      {/* <div>
+        <Header />
+      </div> */}
+      <div>
+        <RoutesApp />
+      </div>
+      {/* <div className="App">
         <UseState />
       </div>
       <div className="App">
@@ -33,7 +47,7 @@ function App() {
       </div>
       <div className="App">
         <UseMemoPosts />
-      </div>
+      </div> */}
     </section>
   );
 }
